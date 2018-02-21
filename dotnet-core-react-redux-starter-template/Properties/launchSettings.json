@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "dotnet_core_react_starter": {
+    "dotnet_core_react_redux_starter_template": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

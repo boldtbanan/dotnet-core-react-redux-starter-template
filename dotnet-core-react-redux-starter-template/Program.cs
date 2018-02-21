@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace dotnet_core_react_starter
+namespace dotnet_core_react_redux_starter_template
 {
     public class Program
     {

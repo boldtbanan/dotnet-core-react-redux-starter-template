@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-core-react-starter", "dotnet-core-react-starter\dotnet-core-react-starter.csproj", "{C013349B-8469-4649-A8D2-412910F1E46E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-core-react-redux-starter-template", "dotnet-core-react-redux-starter-template\dotnet-core-react-redux-starter-template.csproj", "{C013349B-8469-4649-A8D2-412910F1E46E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
