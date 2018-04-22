@@ -1,8 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const projectConfig = require('./config/project.config');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 
 module.exports = (env) => {
+  const extractSass = new ExtractTextPlugin({
+    filename: 'site.css'
+  });
+
   const clientBundleConfig = {
     entry: { 'main-client': './ClientApp/main-client.js' },
     resolve: { extensions: ['.js', '.jsx'] },
@@ -19,10 +25,25 @@ module.exports = (env) => {
           test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           loader: "url-loader?limit=10000&mimetype=application/font-woff"
         },
-        { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
+        { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+        {
+          test: /\.scss$/,
+          use: extractSass.extract({
+              use: [{
+                  loader: "css-loader"
+              }, {
+                  loader: "sass-loader"
+              }],
+              // use style-loader in development
+              fallback: "style-loader"
+          })
+        }
       ]
     },
-    devtool: 'source-map'
+    devtool: 'source-map',
+    plugins: [
+      extractSass
+    ]
   };
 
   return [clientBundleConfig];

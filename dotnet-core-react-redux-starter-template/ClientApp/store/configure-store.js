@@ -20,8 +20,8 @@ export default function configureStore(history, initialState) {
 
     // Enable Webpack hot module replacement for reducers
     if (module.hot) {
-        module.hot.accept('./store', () => {
-            const nextRootReducer = require('./store');
+        module.hot.accept('./reducers', () => {
+            const nextRootReducer = require('./reducers');
             store.replaceReducer(buildRootReducer(nextRootReducer.reducers));
         });
     }
@@ -30,5 +30,8 @@ export default function configureStore(history, initialState) {
 }
 
 function buildRootReducer(allReducers) {
-    return combineReducers(Object.assign({}, allReducers, { routing: routerReducer }));
+    return combineReducers({
+      ...allReducers,
+      routing: routerReducer
+    });
 }

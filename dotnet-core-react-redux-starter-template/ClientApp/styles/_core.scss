@@ -1,0 +1,9 @@
+@import '~foundation-sites/scss/util/util';
+@import 'settings';
+@import '~foundation-sites/scss/foundation';
+
+@include foundation-everything;
+
+// import these explicitly because they are deprecated
+@include foundation-flex-classes;
+@include foundation-flex-grid;

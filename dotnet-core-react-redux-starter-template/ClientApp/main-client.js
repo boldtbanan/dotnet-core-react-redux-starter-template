@@ -1,5 +1,5 @@
 //import './css/site.css';
-//import './css/site.scss'
+import './styles/site.scss'
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 //import 'font-awesome-webpack';
@@ -20,24 +20,28 @@ const initialState = window.initialReduxState;
 const store = configureStore(history, initialState);
 
 function renderApp() {
-    // This code starts up the React app when it runs in a browser. It sets up the routing configuration
-    // and injects the app into a DOM element.
-    ReactDOM.render(
-        <AppContainer>
-            <Provider store={ store }>
-                <ConnectedRouter history={ history } children={ routes } />
-            </Provider>
-        </AppContainer>,
-        document.getElementById('react-app')
-    );
+	// This code starts up the React app when it runs in a browser. It sets up the routing configuration
+	// and injects the app into a DOM element.
+	ReactDOM.render(
+		<div id="outer-container">
+			<div id="page-wrap">
+				<AppContainer>
+					<Provider store={store}>
+						<ConnectedRouter history={history} children={routes} />
+					</Provider>
+				</AppContainer>
+			</div>
+		</div>,
+		document.getElementById('react-app')
+	);
 }
 
 renderApp();
 
 // Allow Hot Module Replacement
 if (module.hot) {
-   module.hot.accept('./routes', () => {
-       routes = require('./routes').routes;
-       renderApp();
-   });
+	module.hot.accept('./routes', () => {
+		routes = require('./routes').routes;
+		renderApp();
+	});
 }

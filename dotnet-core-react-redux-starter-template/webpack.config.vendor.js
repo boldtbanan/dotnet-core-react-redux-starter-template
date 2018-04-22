@@ -17,6 +17,7 @@ module.exports = (env) => {
     },
     entry: {
       vendor: [
+        'classnames',
         'history',
         'react',
         'react-dom',
